@@ -1,0 +1,19 @@
+[project]
+name = "policydesk"
+version = "1.0.0"
+description = "PolicyDesk starter — TalentPath Academy AI-Powered SDLC Workshop"
+requires-python = ">=3.12"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]   # so bare `pytest` (as CI runs it) can import `app`
+addopts = "-q"
+filterwarnings = ["ignore::DeprecationWarning"]
+markers = [
+    "smoke: fast liveness checks — run first in CI, a failure stops the pipeline",
+    "regression: protects the given features — runs after smoke on every push and PR",
+    "lab: student targets that fail on the starter by design — excluded from CI until the lab is done",
+]
+
+[tool.ruff]
+line-length = 120
